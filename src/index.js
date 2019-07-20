@@ -19,6 +19,9 @@ const formInput = (state = defaultInputs, action) => {
     if (action.type === 'SET_FEELINGS') {
         state.feelings = action.payload;
         return state;
+    } else if (action.type === 'SET_UNDERSTANDING') {
+        state.understanding = action.payload;
+        return state;
     }
     return state;
 }
