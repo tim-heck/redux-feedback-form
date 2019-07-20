@@ -4,5 +4,31 @@ import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+
+let defaultInputs = {
+    feelings: 0,
+    understanding: 0,
+    support: 0,
+    comments: ''
+}
+
+const formInput = (state = defaultInputs, action) => {
+    if (action.type === 'SET_FEELINGS') {
+        state.feelings = action.payload;
+        return state;
+    }
+    return state;
+}
+
+const storeInstance = createStore(
+    combineReducers({
+        formInput,
+    }),
+    applyMiddleware(logger)
+);
+
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
