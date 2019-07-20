@@ -10,6 +10,7 @@ import StartButton from '../StartButton/StartButton';
 import Support from '../Support/Support';
 
 import './App.css';
+import Comments from '../Comments/Comments';
 
 class App extends Component {
 
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/feedback/feelings" component={Feelings} />
           <Route exact path="/feedback/understanding" component={Understanding} />
           <Route exact path="/feedback/support" component={Support} />
+          <Route exact path="/feedback/comments" component={Comments} />
 
           <Route path="/feedback" component={Feedback} />
           <br/>
