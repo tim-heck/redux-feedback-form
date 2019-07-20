@@ -3,6 +3,19 @@ import { connect } from 'react-redux';
 
 class Feedback extends Component {
 
+    submitButton = () => {
+        let formChecks = this.props.reduxStore.inputsIn;
+        if (formChecks.feelings && formChecks.understanding && formChecks.support && formChecks.comments) {
+            return (
+                <button>SUBMIT</button>
+            );
+        } else {
+            return (
+                <button disabled>SUBMIT</button>
+            );
+        }
+    }
+
     render() {
         return (
             <>
@@ -13,6 +26,7 @@ class Feedback extends Component {
                     <li>Support: {this.props.reduxStore.formInput.support}</li>
                     <li>Comments: {this.props.reduxStore.formInput.comments}</li>
                 </ul>
+                {this.submitButton()}
             </>
         );
     }

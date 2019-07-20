@@ -15,6 +15,13 @@ let defaultInputs = {
     comments: ''
 }
 
+let inputsCheck = {
+    feelings: false,
+    understanding: false,
+    support: false,
+    comments: false
+}
+
 const formInput = (state = defaultInputs, action) => {
     if (action.type === 'SET_FEELINGS') {
         state.feelings = action.payload;
@@ -32,9 +39,27 @@ const formInput = (state = defaultInputs, action) => {
     return state;
 }
 
+const inputsIn = (state = inputsCheck, action) => {
+    if (action.type === 'CHECK_FEELINGS') {
+        state.feelings = action.payload;
+        return state;
+    } else if (action.type === 'CHECK_UNDERSTANDING') {
+        state.understanding = action.payload;
+        return state;
+    } else if (action.type === 'CHECK_SUPPORT') {
+        state.support = action.payload;
+        return state;
+    } else if (action.type === 'CHECK_COMMENTS') {
+        state.comments = action.payload;
+        return state;
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
         formInput,
+        inputsIn
     }),
     applyMiddleware(logger)
 );

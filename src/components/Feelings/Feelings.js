@@ -15,7 +15,8 @@ class Feelings extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.dispatch({ type: 'SET_FEELINGS', payload: this.state.feelings })
+        this.props.dispatch({ type: 'SET_FEELINGS', payload: this.state.feelings });
+        this.props.dispatch({ type: 'CHECK_FEELINGS', payload: true });
         this.props.history.push('/feedback/understanding');
     }
 
