@@ -25,6 +25,9 @@ const formInput = (state = defaultInputs, action) => {
     } else if (action.type === 'SET_SUPPORT') {
         state.support = action.payload;
         return state;
+    } else if (action.type === 'SET_COMMENTS') {
+        state.comments = action.payload;
+        return state;
     }
     return state;
 }
