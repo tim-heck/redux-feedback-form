@@ -7,6 +7,7 @@ import Feelings from '../Feelings/Feelings';
 import Feedback from '../Feedback/Feedback';
 import Understanding from '../Understanding/Understanding';
 import StartButton from '../StartButton/StartButton';
+import Support from '../Support/Support';
 
 import './App.css';
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/" component={StartButton} />
           <Route exact path="/feedback/feelings" component={Feelings} />
           <Route exact path="/feedback/understanding" component={Understanding} />
+          <Route exact path="/feedback/support" component={Support} />
 
           <Route path="/feedback" component={Feedback} />
           <br/>

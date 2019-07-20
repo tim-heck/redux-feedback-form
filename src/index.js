@@ -22,6 +22,9 @@ const formInput = (state = defaultInputs, action) => {
     } else if (action.type === 'SET_UNDERSTANDING') {
         state.understanding = action.payload;
         return state;
+    } else if (action.type === 'SET_SUPPORT') {
+        state.support = action.payload;
+        return state;
     }
     return state;
 }
