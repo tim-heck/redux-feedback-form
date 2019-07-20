@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
-import Feelings from '../Feelings/Feelings';
-
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-class App extends Component {
+import Feelings from '../Feelings/Feelings';
+import Feedback from '../Feedback/Feedback';
+import StartButton from '../StartButton/StartButton';
 
-  // startSurvey = () => {
-  //   this.history.props.push('/feedback/feelings');
-  // }
+import './App.css';
+
+class App extends Component {
 
   render() {
     return (
@@ -20,9 +19,9 @@ class App extends Component {
             <h1 className="App-title">Feedback!</h1>
             <h4><i>Don't forget it!</i></h4>
           </header>
-          <Link to="/feedback/feelings">Start Survey</Link>
-          {/* <button onClick={this.startSurvey}>Start Survey</button> */}
-          <Route exact path='/feedback/feelings' component={Feelings} />
+          <Route exact path="/" component={StartButton} />
+          <Route exact path="/feedback/feelings" component={Feelings} />
+          <Route path="/feedback" component={Feedback} />
           <br/>
         </div>
       </Router>
