@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Feelings from '../Feelings/Feelings';
 import Feedback from '../Feedback/Feedback';
+import Understanding from '../Understanding/Understanding';
 import StartButton from '../StartButton/StartButton';
 
 import './App.css';
@@ -21,6 +22,8 @@ class App extends Component {
           </header>
           <Route exact path="/" component={StartButton} />
           <Route exact path="/feedback/feelings" component={Feelings} />
+          <Route exact path="/feedback/understanding" component={Understanding} />
+
           <Route path="/feedback" component={Feedback} />
           <br/>
         </div>
