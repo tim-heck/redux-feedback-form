@@ -33,6 +33,7 @@ class Feedback extends Component {
         });
         Axios.post('/feedback-info', this.state).then(response => {
             console.log(response);
+            this.props.history.push('/thank-you');
         }).catch(err => {
             console.log(err);
         })
