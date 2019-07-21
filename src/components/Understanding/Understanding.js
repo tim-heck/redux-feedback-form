@@ -15,7 +15,8 @@ class Understanding extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding })
+        this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding });
+        this.props.dispatch({ type: 'CHECK_UNDERSTANDING', payload: true });
         this.props.history.push('/feedback/support');
     }
 

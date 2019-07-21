@@ -8,9 +8,10 @@ import Feedback from '../Feedback/Feedback';
 import Understanding from '../Understanding/Understanding';
 import StartButton from '../StartButton/StartButton';
 import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
+import ThankYou from '../ThankYou/ThankYou';
 
 import './App.css';
-import Comments from '../Comments/Comments';
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path="/feedback/comments" component={Comments} />
 
           <Route path="/feedback" component={Feedback} />
+          <Route exact path="/thank-you" component={ThankYou} />
           <br/>
         </div>
       </Router>

@@ -15,7 +15,8 @@ class Comments extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.dispatch({ type: 'SET_COMMENTS', payload: this.state.comments })
+        this.props.dispatch({ type: 'SET_COMMENTS', payload: this.state.comments });
+        this.props.dispatch({ type: 'CHECK_COMMENTS', payload: true });
         this.props.history.push('/feedback');
     }
 
