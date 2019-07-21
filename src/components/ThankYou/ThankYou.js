@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 class ThankYou extends Component {
 
+    // Redirects back to the beginning of the form
     redoSurvey = () => {
-        this.props.history.push('/feedback/feelings');
+        this.props.history.push('/feelings');
     }
 
     render() {

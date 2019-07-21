@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -24,12 +23,12 @@ class App extends Component {
             <h4><i>Don't forget it!</i></h4>
           </header>
           <Route exact path="/" component={StartButton} />
-          <Route exact path="/feedback/feelings" component={Feelings} />
-          <Route exact path="/feedback/understanding" component={Understanding} />
-          <Route exact path="/feedback/support" component={Support} />
-          <Route exact path="/feedback/comments" component={Comments} />
+          <Route exact path="/feelings" component={Feelings} />
+          <Route exact path="/understanding" component={Understanding} />
+          <Route exact path="/support" component={Support} />
+          <Route exact path="/comments" component={Comments} />
 
-          <Route path="/feedback" component={Feedback} />
+          <Route exact path="/feedback" component={Feedback} />
           <Route exact path="/thank-you" component={ThankYou} />
           <br/>
         </div>

@@ -7,12 +7,21 @@ class Comments extends Component {
         comments: ''
     }
 
+    /**
+    * Method that updates the local state as the user enters
+    * information into the input
+    */
     handleChangeFor = (event, propName) => {
         this.setState({
             [propName]: event.target.value
         })
     }
 
+    /**
+    * Method for dispatching the local states value to the index.js to be
+    * stored in a reducer in the reduxStore
+    * Also updates the check for if the user has filled out the comments form
+    */
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.dispatch({ type: 'SET_COMMENTS', payload: this.state.comments });

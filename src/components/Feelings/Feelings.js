@@ -7,17 +7,26 @@ class Feelings extends Component {
         feelings: 0
     }
 
+    /**
+     * Method that updates the local state as the user enters
+     * information into the input
+     */
     handleChangeFor = (event, propName) => {
         this.setState({
             [propName]: event.target.value
         })
     }
 
+    /**
+    * Method for dispatching the local states value to the index.js to be
+    * stored in a reducer in the reduxStore
+    * Also updates the check for if the user has filled out the feelings form
+    */
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.dispatch({ type: 'SET_FEELINGS', payload: this.state.feelings });
         this.props.dispatch({ type: 'CHECK_FEELINGS', payload: true });
-        this.props.history.push('/feedback/understanding');
+        this.props.history.push('/understanding');
     }
 
     render() {

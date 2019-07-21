@@ -7,17 +7,26 @@ class Support extends Component {
         support: 0
     }
 
+    /**
+     * Method that updates the local state as the user enters
+     * information into the input
+     */
     handleChangeFor = (event, propName) => {
         this.setState({
             [propName]: event.target.value
         })
     }
 
+    /**
+     * Method for dispatching the local states value to the index.js to be
+     * stored in a reducer in the reduxStore
+     * Also updates the check for if the user has filled out the support form
+     */
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.dispatch({ type: 'SET_SUPPORT', payload: this.state.support });
         this.props.dispatch({ type: 'CHECK_SUPPORT', payload: true });
-        this.props.history.push('/feedback/comments');
+        this.props.history.push('/comments');
     }
 
     render() {

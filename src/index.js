@@ -8,6 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+// Default inputs for state in formInput reducer 
 let defaultInputs = {
     feelings: 0,
     understanding: 0,
@@ -15,13 +16,19 @@ let defaultInputs = {
     comments: ''
 }
 
+// Default inputs for state in inputsIn reducer 
 let inputsCheck = {
-    feelings: true,
-    understanding: true,
-    support: true,
-    comments: true
+    feelings: false,
+    understanding: false,
+    support: false,
+    comments: false
 }
 
+/**
+ * Reducer that stores the user input from all froms
+ * @param {object} state stores values to pass with props
+ * @param {object} action contains action type to determine what to do with payload
+ */
 const formInput = (state = defaultInputs, action) => {
     if (action.type === 'SET_FEELINGS') {
         state.feelings = action.payload;
@@ -39,6 +46,11 @@ const formInput = (state = defaultInputs, action) => {
     return state;
 }
 
+/**
+ * Reducer that stores if the user has completed the forms
+ * @param {object} state stores values to pass with props
+ * @param {object} action contains action type to determine what to do with payload
+ */
 const inputsIn = (state = inputsCheck, action) => {
     if (action.type === 'CHECK_FEELINGS') {
         state.feelings = action.payload;
