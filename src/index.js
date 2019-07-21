@@ -16,10 +16,10 @@ let defaultInputs = {
 }
 
 let inputsCheck = {
-    feelings: false,
-    understanding: false,
-    support: false,
-    comments: false
+    feelings: true,
+    understanding: true,
+    support: true,
+    comments: true
 }
 
 const formInput = (state = defaultInputs, action) => {
