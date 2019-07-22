@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// styling
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    },
+    textField: {
+        margin: theme.spacing.unit,
+        width: 200,
+    },
+})
+
 class Understanding extends Component {
 
     state = {

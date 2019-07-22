@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// styling
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    },
+    textField: {
+        margin: theme.spacing.unit,
+        width: 200,
+    },
+})
+
 class Feelings extends Component {
 
     state = {
@@ -30,17 +45,30 @@ class Feelings extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         return (
             <>
                 <h2>How are you feeling today?</h2>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
-                    <input type="number" placeholder="Feeling?"
-                        value={this.state.feelings} onChange={(event) => this.handleChangeFor(event, 'feelings')} />
-                    <button type="submit">NEXT</button>
+                    {/* <input type="number" placeholder="Feeling?"
+                        value={this.state.feelings} onChange={(event) => this.handleChangeFor(event, 'feelings')} /> */}
+                    <TextField
+                        required
+                        id="standard-name"
+                        label="Feeling?"
+                        onChange={(event) => this.handleChangeFor(event, 'feelings')}
+                        margin="normal"
+                        value={this.state.feelings}
+                        className={classes.textField}
+                    />
+                    {/* <button type="submit">NEXT</button> */}
+                    <Button variant="contained" type="submit" className={classes.button}>
+                        NEXT
+                    </Button>
                 </form>
             </>
         );
     }
 }
 
-export default connect()(Feelings);
+export default withStyles(styles)(connect()(Feelings));
