@@ -26,7 +26,7 @@ class Support extends Component {
         event.preventDefault();
         this.props.dispatch({ type: 'SET_SUPPORT', payload: this.state.support });
         this.props.dispatch({ type: 'CHECK_SUPPORT', payload: true });
-        this.props.history.push('/comments');
+        this.props.history.push('/feedback/comments');
     }
 
     render() {

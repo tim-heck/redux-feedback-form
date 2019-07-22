@@ -4,20 +4,25 @@ import Axios from 'axios';
 
 class Feedback extends Component {
 
-    state = {
-        feeling: this.props.reduxStore.formInput.feelings,
-        understanding: this.props.reduxStore.formInput.understanding,
-        support: this.props.reduxStore.formInput.support,
-        comments: this.props.reduxStore.formInput.comments
-    }
-
     /**
      * Method that sets the local state with the values stored in the reducer
      * sends a post request to the server with that information
      */
     handleSubmit = () => {
-        Axios.post('/feedback-info', this.state).then(response => {
+        let feedback = {
+            feeling: this.props.reduxStore.formInput.feelings,
+            understanding: this.props.reduxStore.formInput.understanding,
+            support: this.props.reduxStore.formInput.support,
+            comments: this.props.reduxStore.formInput.comments
+        }
+        Axios.post('/feedback-info', feedback).then(response => {
             console.log(response);
+            this.props.dispatch({type: 'CLEAR_FEEDBACK', payload: {
+                feelings: 0,
+                understanding: 0,
+                support: 0,
+                comments: ''
+            }})
             this.props.history.push('/thank-you');
         }).catch(err => {
             console.log(err);

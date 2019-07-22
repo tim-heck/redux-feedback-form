@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class StartButton extends Component {
 
     startSurvey = () => {
-        this.props.history.push('/feelings');
+        this.props.history.push('/feedback/feelings');
     }
 
     render() {
